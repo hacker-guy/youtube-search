@@ -1,0 +1,59 @@
+body {
+	background-color: #f1f1f1;
+	font-family: roboto, arial, serif;
+	padding: 20px;
+}
+
+.title {
+	font-size: 60px;
+	font-weight: 800;
+}
+
+input {
+	width: 300px;
+	height: 40px;
+}
+
+input, .searchbutton {
+	font-size: 20px;
+}
+
+.title, .searchbutton, #searchform, .results {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.title, .searchbutton, #searchform {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+/* CHANGE TO GRID DESIGN */
+.thumbn {
+	float: left;
+	margin: 5px;
+    display: inline-block;
+}
+
+.title, #searchform {
+	width: 100%;
+}
+
+.searchbutton {
+	width: 120px;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 6px;
+	border-width: 0px;
+	background-color: #c4302b;
+	box-shadow: inset -13px -12px 60px -46px rgba(0,0,0,0.75);
+	color: #f2f2f2;
+	cursor: pointer;
+}
+
+
+.searchbutton:hover {
+	box-shadow: inset -13px -12px 100px -46px rgba(0,0,0,0.75);
+	color: white;
+}
