@@ -36,8 +36,8 @@ function searchYoutube (text) {
 $(document).ready(function()  {
 	$(document).on("click", "#prev", function(event) {
 		event.preventDefault();
-		$.getJSON("https://www.googleapis.com/youtube/v3/&search?pageToken=" + prevpage + "&part=snippet\
-		&q="+searchtext+"maxResults=10&type=video&key=AIzaSyA_umswAZe_kez-yvwjY8nZj0Qr6lKaJnc"
+		$.getJSON("https://www.googleapis.com/youtube/v3/search?pageToken="+String(prevpage)+"&part=snippet\
+		&q="+searchtext+"&maxResults=10&type=video&key=AIzaSyA_umswAZe_kez-yvwjY8nZj0Qr6lKaJnc"
 		, function(json) {
 			console.log(json);
 			if (json != "Nothing found.") {
@@ -59,7 +59,7 @@ $(document).ready(function()  {
 	});
 	$(document).on("click", "#next", function(event) {
 		event.preventDefault();
-		$.getJSON("https://www.googleapis.com/youtube/v3/&search?pageToken=" + nextpage + "&part=snippet\
+		$.getJSON("https://www.googleapis.com/youtube/v3/search?pageToken="+String(nextpage)+"&part=snippet\
 		&q="+searchtext+"&maxResults=10&type=video&key=AIzaSyA_umswAZe_kez-yvwjY8nZj0Qr6lKaJnc"
 		, function(json) {
 			console.log(json);
