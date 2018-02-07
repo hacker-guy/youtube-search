@@ -26,18 +26,7 @@ function searchYoutube (text) {
 					 	json.items[i].snippet.title + "</span></div>" );
 					$("#nav_form").removeAttr("hidden");
 				}
-				if (json.nextPageToken) {
-					$("#next").removeAttr("disabled");
-					nextpage = json.nextPageToken;
-				} else {
-					$("#next").prop('disabled', true);
-				}
-				if (json.prevPageToken) {
-					$("#prev").removeAttr("disabled");
-					prevpage = json.prevPageToken;
-				} else {
-					$("#prev").prop('disabled', true);
-				}
+				updateNav(json.nextPageToken, json.prevPageToken);
 			} else {
 				$(".results").html("Oops something went wrong here :O");
 			}
@@ -62,12 +51,7 @@ $(document).ready(function()  {
 					 	json.items[i].snippet.title + "</span></div>" );
 					$("#nav_form").removeAttr("hidden");
 				}
-				if (json.prevPageToken) {
-					$("#prev").removeAttr("disabled");
-					prevpage = json.prevPageToken;
-				} else {
-					$("#prev").prop('disabled', true);
-				}
+				updateNav(json.nextPageToken, json.prevPageToken);
 			} else {
 				$(".results").html("Oops something went wrong here :O");
 			}
@@ -90,18 +74,28 @@ $(document).ready(function()  {
 					 	json.items[i].snippet.title + "</span></div>" );
 					$("#nav_form").removeAttr("hidden");
 				}
-				if (json.nextPageToken) {
-					$("#next").removeAttr("disabled");
-					nextpage = json.nextPageToken;
-				} else {
-					$("#next").prop('disabled', true);
-				}
+				updateNav(json.nextPageToken, json.prevPageToken);
 			} else {
 				$(".results").html("Oops something went wrong here :O");
 			}
 		});
 	});
 });
+
+function updateNav(next, prev) {
+	if (next) {
+		$("#next").removeAttr("disabled");
+		nextpage = next;
+	} else {
+		$("#next").prop('disabled', true);
+	}
+	if (prev) {
+		$("#prev").removeAttr("disabled");
+		prevpage = prev;
+	} else {
+		$("#prev").prop('disabled', true);
+	}
+}
 
 function windowScroll() {
 	$(window).scroll(function() {
